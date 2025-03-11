@@ -7,12 +7,16 @@ import {
   PaginationPrevious,
   PaginationNext,
   PaginationLink,
-} from "@/components/ui/pagination"; // Ajuste o caminho conforme necessário
-import { Link } from "react-router-dom";
+} from "@/components/ui/pagination";
+import { useNavigate } from "react-router-dom";
 
 export default function Profissoes() {
   const [profissoes, setProfissoes] = useState<ListaProfissoes | null>(null);
+  const [profissaoEscolhida, setProfissaoEscolhida] = useState<string | null>(
+    localStorage.getItem("profissaoEscolhida") || null
+  );
   const [paginaAtual, setPaginaAtual] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     renderizarProfissoes();
@@ -31,6 +35,19 @@ export default function Profissoes() {
     } catch (error) {
       console.log(`Erro: ${error}`);
     }
+  };
+
+  const selecionarProfissao = (profissao: string) => {
+    setProfissaoEscolhida(profissao);
+    localStorage.setItem("profissaoEscolhida", profissao);
+  };
+
+  const avancarParaCursos = () => {
+    if (!profissaoEscolhida) {
+      alert("Por favor, selecione uma profissão antes de avançar.");
+      return;
+    }
+    navigate("/cursos");
   };
 
   const totalPaginas = profissoes ? profissoes.paginas.length : 0;
@@ -57,8 +74,13 @@ export default function Profissoes() {
                 .find((pagina) => pagina.pagina === paginaAtual)
                 ?.profissoes.map((profissao, index) => (
                   <li
-                    className="bg-[#fd7b01] hover:bg-orange-400 transition-colors text-center text-white p-3 rounded-full cursor-pointer text-lg md:text-xl"
+                    className={`${
+                      profissaoEscolhida === profissao
+                        ? "bg-blue-600"
+                        : "bg-[#fd7b01] hover:bg-orange-400"
+                    } transition-colors text-center text-white p-3 rounded-full cursor-pointer text-lg md:text-xl`}
                     key={index}
+                    onClick={() => selecionarProfissao(profissao)}
                   >
                     {profissao}
                   </li>
@@ -116,13 +138,20 @@ export default function Profissoes() {
             </PaginationContent>
           </Pagination>
 
-          <div className="w-full flex justify-center">
-            <Link
-              className="inline-block text-center text-orange-500 text-xl p-2 md:mt-10 md:p-0 underline decoration-orange-500 font-bold"
-              to={"/"}
+          <div className="w-full flex items-center justify-between mt-8">
+            <a
+              className="mt-6 text-orange-500 text-xl underline font-bold"
+              href="/"
             >
               Página Inicial
-            </Link>
+            </a>
+
+            <button
+              onClick={avancarParaCursos}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
+            >
+              Avançar
+            </button>
           </div>
         </main>
       </div>
