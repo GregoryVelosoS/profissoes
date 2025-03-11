@@ -3,34 +3,86 @@
     {
       "pagina": 1,
       "profissoes": [
-        "Vendedor",
-        "Auxiliar de Logística",
-        "Administrador",
-        "Analista Financeiro",
-        "Mecânico",
-        "Eletricista"
+        "Advogado",
+        "Agrônomo",
+        "Analista de Recursos Humanos",
+        "Arquiteto",
+        "Assistente Social",
+        "Ator",
+        "Auditor",
+        "Bancário",
+        "Biólogo",
+        "Biomédico",
+        "Cientista de Dados",
+        "Cirurgião"
       ]
     },
     {
       "pagina": 2,
       "profissoes": [
-        "Engenheiro Civil",
-        "Professor",
-        "Enfermeiro",
-        "Desenvolvedor de Software",
+        "Chefe de Cozinha",
+        "Comissário de Bordo",
+        "Contador",
+        "Corretor de Imóveis",
+        "Designer de Interiores",
         "Designer Gráfico",
-        "Advogado"
+        "Desenvolvedor de Jogos",
+        "Dentista",
+        "Economista",
+        "Editor de Vídeo",
+        "Eletricista",
+        "Empreendedor"
       ]
     },
     {
       "pagina": 3,
       "profissoes": [
-        "Motorista",
-        "Cozinheiro",
-        "Atendente de Loja",
-        "Técnico em Informática",
+        "Enfermeiro",
+        "Engenheiro Civil",
+        "Engenheiro de Software",
+        "Engenheiro Elétrico",
+        "Engenheiro Mecânico",
+        "Estatístico",
         "Farmacêutico",
-        "Garçom"
+        "Fisioterapeuta",
+        "Fotógrafo",
+        "Garçom",
+        "Geógrafo",
+        "Gestor Ambiental"
+      ]
+    },
+    {
+      "pagina": 4,
+      "profissoes": [
+        "Historiador",
+        "Ilustrador",
+        "Jornalista",
+        "Juiz",
+        "Locutor",
+        "Médico",
+        "Meteorologista",
+        "Motorista de Transporte",
+        "Músico",
+        "Nutricionista",
+        "Oceanógrafo",
+        "Operador de Máquinas"
+      ]
+    },
+    {
+      "pagina": 5,
+      "profissoes": [
+        "Orientador Educacional",
+        "Palhaço",
+        "Pedagogo",
+        "Personal Trainer",
+        "Piloto de Avião",
+        "Policial",
+        "Produtor de Eventos",
+        "Professor",
+        "Programador de Software",
+        "Psicólogo",
+        "Publicitário",
+        "Técnico em Informática"
       ]
     }
   ]

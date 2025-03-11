@@ -1,6 +1,10 @@
-import { RouterProvider } from "react-router-dom";
-import { routes } from "./routes";
+// Importação do Outlet para o 
+import { Outlet } from 'react-router-dom'
 
 export default function App() {
-  return <RouterProvider router={routes} />;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 }

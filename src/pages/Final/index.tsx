@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Final() {
   return (
     <div className="h-screen bg-[#222fe6] pt-10">
       <main className="w-full flex items-center justify-center">
@@ -17,16 +17,25 @@ export default function Home() {
               </h2>
             </div>
           </header>
-          <div className="text-white space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-8xl max-w-[430px] leading-tight sm:leading-10 md:leading-24">
-              <span className="font-bold">O QUE EU GANHO</span> Com isso?
-            </h1>
-            <Link
-              className="bg-[#fd7b01] rounded-full p-4 text-xl sm:text-2xl font-bold block text-center mt-4"
-              to={"/profissoes"}
-            >
-              Descubra
-            </Link>
+
+          <div className="w-full flex items-start justify-start">
+            <div className="text-white space-y-4">
+              <h1 className="text-9x1 sm:text-5xl md:text-9xl min-w-[700px] leading-6 sm:leading-10 md:leading-30 red-font">
+                Seu futuro 
+                <br></br>
+                te espera 
+                <br></br>
+                no Senai
+              </h1>
+            </div>
+            <div className="text-white space-y-4">
+              <Link
+                className="rounded-full p-4 text-xl sm:text-2xl text-white underline red-font font-bold block text-center mt-4"
+                to={"/"}
+              >
+                Recomecar
+              </Link>
+            </div>
           </div>
         </div>
       </main>
