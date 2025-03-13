@@ -144,10 +144,10 @@ export default function Cursos() {
             </PaginationContent>
           </Pagination>
 
-          <div className="w-full flex items-center justify-between mt-8">
-            <a className="mt-6 text-white text-xl underline font-bold" href="/">
-              Página Inicial
-            </a>
+          <div className="w-full flex justify-between mt-8">
+            <Link className="mt-6 text-white text-xl underline font-bold" to="/faixasalarial">
+              Voltar
+            </Link>
 
             <button
               onClick={avancarParaPaginaFinal}

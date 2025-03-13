@@ -8,7 +8,7 @@ import {
   PaginationNext,
   PaginationLink,
 } from "@/components/ui/pagination";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Profissoes() {
   const [profissoes, setProfissoes] = useState<ListaProfissoes | null>(null);
@@ -50,7 +50,7 @@ export default function Profissoes() {
       alert("Por favor, selecione uma profissão antes de avançar.");
       return;
     }
-    navigate("/cursos");
+    navigate("/faixasalarial");
   };
 
   const totalPaginas = profissoes ? profissoes.paginas.length : 0;
@@ -141,17 +141,17 @@ export default function Profissoes() {
             </PaginationContent>
           </Pagination>
 
-          <div className="w-full flex items-center justify-between mt-8">
-            <a
-              className="mt-6 text-orange-500 text-xl underline font-bold"
-              href="/"
+          <div className="w-full flex  justify-between mt-8">
+            <Link
+              className="block mt-6 text-orange-500 text-xl underline font-bold"
+              to="/"
             >
               Página Inicial
-            </a>
+            </Link>
 
             <button
               onClick={avancarParaCursos}
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
+              className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
             >
               Avançar
             </button>

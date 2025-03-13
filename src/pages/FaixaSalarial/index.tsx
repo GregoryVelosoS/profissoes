@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function FaixaSalarial() {
   const faixasSalariais = [
@@ -9,6 +10,36 @@ export default function FaixaSalarial() {
     { min: 10000.0, max: 15000.0 },
     { min: 15000.0, max: 20000.0 },
   ];
+
+  const [salarioEscolhido, setSalarioEscolhido] = useState<{
+    min: number;
+    max: number;
+  } | null>(null);
+
+  const navigate = useNavigate();
+
+  const selecionarSalario = (salario: { min: number; max: number }) => {
+    if (
+      salarioEscolhido &&
+      salarioEscolhido.min === salario.min &&
+      salarioEscolhido.max === salario.max
+    ) {
+      setSalarioEscolhido(null);
+      localStorage.removeItem("salarioEscolhido");
+    } else {
+      setSalarioEscolhido(salario);
+      localStorage.setItem("salarioEscolhido", JSON.stringify(salario));
+    }
+  };
+
+  const avancarParaCurso = () => {
+    if (!salarioEscolhido) {
+      alert("Por favor, selecione uma faixa salarial antes de avançar.");
+      return;
+    }
+    navigate("/cursos");
+  };
+
   return (
     <div className="max-w-5xl mx-auto flex items-center justify-center min-h-screen px-4">
       <div className="w-full pt-8">
@@ -28,8 +59,14 @@ export default function FaixaSalarial() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
             {faixasSalariais.map((salario, index) => (
               <li
-                className="bg-[#222fe6] hover:bg-blue-600 transition-colors text-center text-white p-3 rounded-full cursor-pointer text-lg md:text-base"
                 key={index}
+                onClick={() => selecionarSalario(salario)}
+                className={`cursor-pointer text-center text-white p-3 rounded-full text-lg md:text-base transition-all duration-200 ${
+                  salarioEscolhido?.min === salario.min &&
+                  salarioEscolhido?.max === salario.max
+                    ? "bg-green-500 shadow-lg"
+                    : "bg-[#222fe6] hover:bg-blue-600"
+                }`}
               >
                 <h2>
                   Entre{" "}
@@ -46,13 +83,20 @@ export default function FaixaSalarial() {
               </li>
             ))}
           </ul>
-          <div className="w-full flex justify-center">
+          <div className="w-full flex justify-between mt-8">
             <Link
-              className="inline-block text-center text-blue-500 text-xl mt-3 p-2 md:mt-10 md:p-0 underline decoration-blue-500 font-bold"
-              to={"/profissoes"}
+              className="mt-6 text-blue-500 text-xl underline font-bold"
+              to="/"
             >
-              Página anterior
+              Página Inicial
             </Link>
+
+            <button
+              onClick={avancarParaCurso}
+              className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
+            >
+              Avançar
+            </button>
           </div>
         </main>
       </div>
