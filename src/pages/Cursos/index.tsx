@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { ListaProfissoes } from "../../types/profissoes";
 import {
   Pagination,
   PaginationContent,
@@ -7,19 +6,21 @@ import {
   PaginationPrevious,
   PaginationNext,
   PaginationLink,
-} from "@/components/ui/pagination"; // Ajuste o caminho conforme necessário
-import { Link } from "react-router-dom";
+} from "@/components/ui/pagination";
+import { Link, useNavigate } from "react-router-dom";
 import { ListaCursos } from "@/types/cursos";
 
 export default function Cursos() {
   const [cursos, setCursos] = useState<ListaCursos | null>(null);
+  const [cursoEscolhido, setCursoEscolhido] = useState<string | null>();
   const [paginaAtual, setPaginaAtual] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    renderizarProfissoes();
+    renderizarCursos();
   }, []);
 
-  const renderizarProfissoes = async () => {
+  const renderizarCursos = async () => {
     try {
       const response = await fetch("/data/cursos.json");
 
@@ -32,6 +33,24 @@ export default function Cursos() {
     } catch (error) {
       console.log(`Erro: ${error}`);
     }
+  };
+
+  const selecionarCurso = (curso: string) => {
+    if (cursoEscolhido === curso) {
+      setCursoEscolhido(null);
+      localStorage.removeItem("cursoEscolhido");
+    } else {
+      setCursoEscolhido(curso);
+      localStorage.setItem("cursoEscolhido", curso);
+    }
+  };
+
+  const avancarParaPaginaFinal = () => {
+    if (!cursoEscolhido) {
+      alert("Por favor, selecione uma profissão antes de avançar");
+      return;
+    }
+    navigate("/final");
   };
 
   const totalPaginas = cursos ? cursos.paginas.length : 0;
@@ -59,17 +78,22 @@ export default function Cursos() {
             {cursos &&
               cursos.paginas
                 .find((pagina) => pagina.pagina === paginaAtual)
-                ?.cursos.map((profissao, index) => (
+                ?.cursos.map((curso, index) => (
                   <li
-                    className="bg-[#fd7b01] hover:bg-orange-400 transition-colors text-center text-white p-3 rounded-full cursor-pointer text-lg md:text-xl"
+                    className={`${
+                      cursoEscolhido === curso
+                        ? "bg-blue-900"
+                        : "bg-[#fd7b01] hover:bg-orange-400"
+                    } transition-colors text-center text-white p-3 rounded-full cursor-pointer text-lg md:text-xl`}
                     key={index}
+                    onClick={() => selecionarCurso(curso)}
                   >
-                    {profissao}
+                    {curso}
                   </li>
                 ))}
           </ul>
 
-          <Pagination className="mt-12">
+          <Pagination className="mt-12 text-white">
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
@@ -120,13 +144,17 @@ export default function Cursos() {
             </PaginationContent>
           </Pagination>
 
-          <div className="w-full flex justify-center">
-            <Link
-              className="inline-block text-center text-orange-500 text-xl p-2 md:mt-10 md:p-0 underline decoration-orange-500 font-bold"
-              to={"/"}
-            >
+          <div className="w-full flex items-center justify-between mt-8">
+            <a className="mt-6 text-white text-xl underline font-bold" href="/">
               Página Inicial
-            </Link>
+            </a>
+
+            <button
+              onClick={avancarParaPaginaFinal}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
+            >
+              Avançar
+            </button>
           </div>
         </main>
       </div>

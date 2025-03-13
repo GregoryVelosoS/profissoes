@@ -12,9 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Profissoes() {
   const [profissoes, setProfissoes] = useState<ListaProfissoes | null>(null);
-  const [profissaoEscolhida, setProfissaoEscolhida] = useState<string | null>(
-    localStorage.getItem("profissaoEscolhida") || null
-  );
+  const [profissaoEscolhida, setProfissaoEscolhida] = useState<string | null>();
   const [paginaAtual, setPaginaAtual] = useState(1);
   const navigate = useNavigate();
 
@@ -38,8 +36,13 @@ export default function Profissoes() {
   };
 
   const selecionarProfissao = (profissao: string) => {
-    setProfissaoEscolhida(profissao);
-    localStorage.setItem("profissaoEscolhida", profissao);
+    if (profissaoEscolhida === profissao) {
+      setProfissaoEscolhida(null);
+      localStorage.removeItem("profissaoEscolhida");
+    } else {
+      setProfissaoEscolhida(profissao);
+      localStorage.setItem("profissaoEscolhida", profissao);
+    }
   };
 
   const avancarParaCursos = () => {
