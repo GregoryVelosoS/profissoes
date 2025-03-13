@@ -60,7 +60,7 @@ export default function Cursos() {
       <div className="w-full pt-8 max-w-5xl mx-auto">
         <header className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
           <h1 className="font-bold text-white leading-tight text-4xl md:text-6xl">
-            <span className="font-normal">Quais</span> Cursos{" "}
+            <span className="font-normal">Qual</span> Curso{" "}
             <br className="hidden md:block" /> Você gostaria?
           </h1>
           <h2 className="text-white max-w-96 text-center text-balance text-lg md:text-xl mt-4 md:mt-0">

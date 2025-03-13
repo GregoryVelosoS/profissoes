@@ -86,9 +86,9 @@ export default function FaixaSalarial() {
           <div className="w-full flex justify-between mt-8">
             <Link
               className="mt-6 text-blue-500 text-xl underline font-bold"
-              to="/"
+              to="/profissoes"
             >
-              Página Inicial
+              Voltar
             </Link>
 
             <button
