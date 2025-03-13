@@ -45,12 +45,12 @@ export default function Cursos() {
     }
   };
 
-  const avancarParaPaginaFinal = () => {
+  const avancarParaSalarioFinal = () => {
     if (!cursoEscolhido) {
       alert("Por favor, selecione uma profissão antes de avançar");
       return;
     }
-    navigate("/final");
+    navigate("/salariofinal");
   };
 
   const totalPaginas = cursos ? cursos.paginas.length : 0;
@@ -82,9 +82,9 @@ export default function Cursos() {
                   <li
                     className={`${
                       cursoEscolhido === curso
-                        ? "bg-blue-900"
-                        : "bg-[#fd7b01] hover:bg-orange-400"
-                    } transition-colors text-center text-white p-3 rounded-full cursor-pointer text-lg md:text-xl`}
+                        ? "bg-white text-blue-800"
+                        : "bg-[#fd7b01] hover:bg-orange-400 text-white"
+                    } transition-colors text-center  p-3 rounded-full cursor-pointer text-lg md:text-xl`}
                     key={index}
                     onClick={() => selecionarCurso(curso)}
                   >
@@ -150,7 +150,7 @@ export default function Cursos() {
             </Link>
 
             <button
-              onClick={avancarParaPaginaFinal}
+              onClick={avancarParaSalarioFinal}
               className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
             >
               Avançar

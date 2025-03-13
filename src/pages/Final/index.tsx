@@ -23,11 +23,11 @@ export default function Final() {
           <main className="w-full">
             <div className="w-full">
               <div className="flex items-center justify-between flex-col md:flex-row gap-6 md:gap-0">
-                <h1 className="text-4xl sm:text-6xl md:text-8xl text-white max-w-[450px] leading-12 md:leading-28 text-center md:text-left">
+                <h1 className="text-4xl sm:text-6xl md:text-9xl text-white max-w-[600px] leading-12 md:leading-28 text-center md:text-left red-font">
                   Seu futuro te espera no Senai
                 </h1>
                 <div className="space-y-6 sm:space-y-8">
-                  <div className="flex items-center gap-3 justify-center md:justify-start">
+                  <div className="flex items-center gap-3 justify-center  md:justify-start">
                     <TbArrowBack color="#fff" size={40} />
                     <Link className="text-2xl text-white underline" to={"/"}>
                       Recomeçar
