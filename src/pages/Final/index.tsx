@@ -2,22 +2,15 @@ import { Link } from "react-router-dom";
 import { TbArrowBack } from "react-icons/tb";
 import { CiInstagram } from "react-icons/ci";
 
+import TopBar from "@/components/TopBar.tsx";
+
 export default function Final() {
   return (
     <div className="min-h-screen bg-[#222fe6] pt-10">
       <main className="w-full flex items-center justify-center">
         <div className="max-w-screen-lg w-full flex items-center justify-center flex-col gap-4 px-4">
           <header className="w-full">
-            <div className="flex w-full items-center gap-4">
-              <div className="w-16 h-12 border-2 border-[#fd7b01]"></div>
-              <h1 className="text-white text-center text-xl sm:text-3xl md:text-4xl red-font">
-                Profissão
-              </h1>
-              <div className="border-2 border-[#fd7b01] w-full"></div>
-              <h2 className="text-white text-center text-sm sm:text-xl font-semibold max-w-[120px] sm:max-w-[85px]">
-                SENAI NO SEU FUTURO
-              </h2>
-            </div>
+           <TopBar />
           </header>
 
           <main className="w-full">

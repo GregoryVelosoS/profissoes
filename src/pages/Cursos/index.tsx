@@ -35,13 +35,14 @@ export default function Cursos() {
     }
   };
 
-  const selecionarCurso = (curso: string) => {
+  const selecionarCurso = (curso: string, index: string) => {
     if (cursoEscolhido === curso) {
       setCursoEscolhido(null);
       localStorage.removeItem("cursoEscolhido");
     } else {
       setCursoEscolhido(curso);
       localStorage.setItem("cursoEscolhido", curso);
+      localStorage.setItem("indexCurso", index);
     }
   };
 
@@ -68,7 +69,7 @@ export default function Cursos() {
             ENCAIXA AOS
             <span className="font-bold">
               {" "}
-              cursos que você gostaria de fazer no senai
+              CURSOS QUE VOCÊ GOSTARIA DE FAZER NO SENAI
             </span>
           </h2>
         </header>
@@ -86,7 +87,7 @@ export default function Cursos() {
                         : "bg-[#fd7b01] hover:bg-orange-400 text-white"
                     } transition-colors text-center  p-3 rounded-full cursor-pointer text-lg md:text-xl`}
                     key={index}
-                    onClick={() => selecionarCurso(curso)}
+                    onClick={() => selecionarCurso(curso, index.toString())}
                   >
                     {curso}
                   </li>

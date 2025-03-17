@@ -2,30 +2,15 @@ import { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import { ListaProfissoes } from "../../types/profissoes";
+import { ListaCarreiras } from "../../types/carreiras";
 
 export default function SalarioFinal() {
-  const [profissoes, setProfissoes] = useState<ListaProfissoes | null>(null);
+  const indexCurso = Number(localStorage.getItem("indexCurso"));
+  
+  // const [listaCarr, setListaCarr] = useState([ListaCarreiras.carreiras]);
 
-  useEffect(() => {
-    renderizarProfissoes();
-  }, []);
-
-  const renderizarProfissoes = async () => {
-    try {
-      const response = await fetch("/data/profissoes.json");
-
-      if (!response.ok) {
-        throw new Error("Erro ao puxar dados");
-      }
-
-      const json = await response.json();
-      setProfissoes(json);
-    } catch (error) {
-      console.log(`Erro: ${error}`);
-    }
-  };
-
+  console.log(ListaCarreiras[indexCurso].area);
+  // console.log(ListaCarreiras.carreiras.map((carreira) => carreira.TI[0]));
   return (
     <>
       <div className="max-w-5xl mx-auto flex items-center justify-center min-h-screen px-4">
@@ -53,30 +38,36 @@ export default function SalarioFinal() {
             </div>
             {/* Aqui vai a lista de profissões pra achar esse curso */}
             <h1 className="mt-5 mb-4 text-4xl text-center w-full font-bold text-[#003c64]">
-                Profissões na área X{" "}
-              </h1>
+              Profissões na área {ListaCarreiras[indexCurso].area}{" "}
+            </h1>
             <div className="w-full grid grid-cols-2 gap-x-12 gap-y-1">
-              {profissoes &&
-                profissoes.paginas
-                  .find((pagina) => pagina.pagina === 1)
-                  ?.profissoes.map((profissao, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center justify-between mt-4 "
-                    >
-                      <p className="text-1xl font-bold text-[#003c64]">
-                        {profissao} - R$ 0.000,00
-                      </p>
-                      <p></p>
-                      <br />
-                    </div>
-                  ))}
+              <div>
+                {ListaCarreiras.map((categoria, index) => (
+                  <div key={index}>
+                    <h2>{categoria.area}</h2>
+                    <ul>
+                      {categoria.profissoes.map((profissao, idx) => (
+                        <li key={idx}>
+                          {profissao.nome} - Salário: R$
+                          {profissao.salario.toLocaleString("pt-BR")}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
             </div>
             <div className="w-full flex justify-between mt-8">
-              <Link className="mt-6 text-xl underline font-bold" to="/cursos">
+              <Link
+                className="mt-6  text-blue-500 text-xl underline font-bold"
+                to="/cursos"
+              >
                 Voltar
               </Link>
-              <Link className="mt-6 text-xl underline font-bold" to="/final">
+              <Link
+                className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold content-center px-6 rounded-lg text-lg"
+                to="/final"
+              >
                 Finalizar
               </Link>
             </div>
