@@ -6,11 +6,30 @@ import { ListaCarreiras } from "../../types/carreiras";
 
 export default function SalarioFinal() {
   const indexCurso = Number(localStorage.getItem("indexCurso"));
-  
-  // const [listaCarr, setListaCarr] = useState([ListaCarreiras.carreiras]);
 
-  console.log(ListaCarreiras[indexCurso].area);
-  // console.log(ListaCarreiras.carreiras.map((carreira) => carreira.TI[0]));
+  const [carreiraEscolhida] = useState(ListaCarreiras[indexCurso]);
+
+  const [salarioEscolhido, setSalarioEscolhido] = useState<{
+    min: number;
+    max: number;
+  } | null>(null);
+
+  function AtualizarSalario() {
+    if (carreiraEscolhida && carreiraEscolhida.profissoes.length > 0) {
+      const salarios = carreiraEscolhida.profissoes.map(
+        (profissao) => profissao.salario
+      );
+      const minSalario = Math.min(...salarios);
+      const maxSalario = Math.max(...salarios);
+      setSalarioEscolhido({ min: minSalario, max: maxSalario });
+    } else {
+      setSalarioEscolhido({ min: 0, max: 0 });
+    }
+  }
+  useEffect(() => {
+    AtualizarSalario();
+  }, []);
+
   return (
     <>
       <div className="max-w-5xl mx-auto flex items-center justify-center min-h-screen px-4">
@@ -23,8 +42,8 @@ export default function SalarioFinal() {
             </h1>
           </header>
 
-          <main className="mt-2">
-            <div className="w-full flex justify-between mt-8">
+          <main className="">
+            <div className="w-full flex justify-between">
               {/* Aqui vai o "Botão com a faixa salarial" */}
               <div className="w-full flex items-center justify-center text-center">
                 <h1
@@ -32,30 +51,25 @@ export default function SalarioFinal() {
                     "bg-[#fd7b01] rounded-full p-8 text-xl sm:text-4xl font-bold block text-center mt-4 w-1/2 text-white"
                   }
                 >
-                  Entre 0.000 e 0.000
+                  {salarioEscolhido
+                    ? `Entre ${salarioEscolhido.min} e ${salarioEscolhido.max}`
+                    : "Salário não disponível"}
                 </h1>
               </div>
             </div>
             {/* Aqui vai a lista de profissões pra achar esse curso */}
             <h1 className="mt-5 mb-4 text-4xl text-center w-full font-bold text-[#003c64]">
-              Profissões na área {ListaCarreiras[indexCurso].area}{" "}
+              Profissões na área {carreiraEscolhida.area}{" "}
             </h1>
-            <div className="w-full grid grid-cols-2 gap-x-12 gap-y-1">
-              <div>
-                {ListaCarreiras.map((categoria, index) => (
-                  <div key={index}>
-                    <h2>{categoria.area}</h2>
-                    <ul>
-                      {categoria.profissoes.map((profissao, idx) => (
-                        <li key={idx}>
-                          {profissao.nome} - Salário: R$
-                          {profissao.salario.toLocaleString("pt-BR")}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            <div className="w-full">
+              <ul className="grid grid-cols-2 gap-x-12 gap-y-1 text-1xl  font-bold text-[#003c64]">
+                {carreiraEscolhida.profissoes.map((profissao, idx) => (
+                  <li key={idx} className="text-center">
+                    {profissao.nome} - Salário: R$
+                    {profissao.salario.toLocaleString("pt-BR")}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
             <div className="w-full flex justify-between mt-8">
               <Link

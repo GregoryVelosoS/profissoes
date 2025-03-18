@@ -3,12 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function FaixaSalarial() {
   const faixasSalariais = [
-    { min: 1518.0, max: 3000.0 },
-    { min: 3000.0, max: 5000.0 },
-    { min: 5000.0, max: 7000.0 },
-    { min: 7000.0, max: 10000.0 },
-    { min: 10000.0, max: 15000.0 },
-    { min: 15000.0, max: 20000.0 },
+    { min: 500.0, max: 1500.0 },
+    { min: 1500.0, max: 2500.0 },
+    { min: 2500.0, max: 3500.0 },
+    { min: 3500.0, max: 4500.0 },
+    { min: 4500.0, max: 5500.0 },
+    { min: 5500.0, max: 6500.0 },
+    { min: 6500.0, max: 7500.0 },
+    { min: 7500.0, max: 10000.0 },
+    { min: 10000.0, max: 12000.0 },
+    { min: 12000.0, max: 14000.0 },
+    { min: 14000.0, max: 16000.0 },
+    { min: 16000.0, max: 20000.0 },
   ];
 
   const [salarioEscolhido, setSalarioEscolhido] = useState<{
