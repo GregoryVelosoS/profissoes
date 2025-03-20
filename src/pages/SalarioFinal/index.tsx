@@ -48,7 +48,7 @@ export default function SalarioFinal() {
               <div className="w-full flex items-center justify-center text-center">
                 <h1
                   className={
-                    "bg-[#fd7b01] rounded-full p-8 text-xl sm:text-4xl font-bold block text-center mt-4 w-1/2 text-white"
+                    "bg-[#fd7b01] rounded-full p-8 text-xl sm:text-4xl font-bold block text-center mt-4 md:w-1/2 text-white"
                   }
                 >
                   {salarioEscolhido
@@ -62,7 +62,7 @@ export default function SalarioFinal() {
               Profissões na área {carreiraEscolhida.area}{" "}
             </h1>
             <div className="w-full">
-              <ul className="grid grid-cols-2 gap-x-12 gap-y-1 text-1xl  font-bold text-[#003c64]">
+              <ul className="grid md:grid-cols-2 sm:grid-cols-1 gap-x-12 gap-y-1 text-1xl  font-bold text-[#003c64]">
                 {carreiraEscolhida.profissoes.map((profissao, idx) => (
                   <li key={idx} className="text-center">
                     {profissao.nome} - Salário: R$
