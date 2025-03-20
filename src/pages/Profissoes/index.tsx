@@ -144,7 +144,7 @@ export default function Profissoes() {
           <div className="w-full flex  justify-between mt-8">
             <Link
               className="block mt-6 text-orange-500 text-xl underline font-bold"
-              to="/"
+              to="/inicio"
             >
               Página Inicial
             </Link>
