@@ -11,7 +11,7 @@ import App from "./App";
 
 export const routes = createBrowserRouter([
   {
-    path: "/profissoes",
+    path: "/",
     element: <App />,
     errorElement: <PaginaErro />,
     children: [
