@@ -11,36 +11,36 @@ import App from "./App";
 
 export const routes = createBrowserRouter([
   {
-    path: "/",
+    path: "/profissoes",
     element: <App />,
     errorElement: <PaginaErro />,
     children: [
       {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/inicio",
-        element: <Home />,
-      },
-      {
         path: "/profissoes",
+        element: <Home />,
+      },
+      {
+        path: "/profissoes/inicio",
+        element: <Home />,
+      },
+      {
+        path: "/profissoes/profissoes",
         element: <Profissoes />,
       },
       {
-        path: "/cursos",
+        path: "/profissoes/cursos",
         element: <Cursos />,
       },
       {
-        path: "/faixasalarial",
+        path: "/profissoes/faixasalarial",
         element: <FaixaSalarial />,
       },
       {
-        path: "/salariofinal",
+        path: "/profissoes/salariofinal",
         element:<SalarioFinal />,
       },
       {
-        path: "/final",
+        path: "/profissoes/final",
         element: <Final />,
       },
     ],

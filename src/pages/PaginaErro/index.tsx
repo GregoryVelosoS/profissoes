@@ -5,7 +5,7 @@ export default function PaginaErro() {
         <span className="font-normal">404</span> 
       </h1>
       <br />
-      <a className="mt-6 block text-orange-500 text-xl underline font-bold" href="/">
+      <a className="mt-6 block text-orange-500 text-xl underline font-bold" href="/profissoes/">
         Página Inicial
       </a>
     </div>

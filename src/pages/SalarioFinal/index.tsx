@@ -74,13 +74,13 @@ export default function SalarioFinal() {
             <div className="w-full flex justify-between mt-8">
               <Link
                 className="mt-6  text-blue-500 text-xl underline font-bold"
-                to="/cursos"
+                to="/profissoes/cursos"
               >
                 Voltar
               </Link>
               <Link
                 className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold content-center px-6 rounded-lg text-lg"
-                to="/final"
+                to="/profissoes/final"
               >
                 Finalizar
               </Link>

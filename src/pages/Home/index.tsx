@@ -22,7 +22,7 @@ export default function Home() {
             </h1>
             <Link
               className="bg-[#fd7b01] rounded-full p-4 text-xl sm:text-2xl font-bold block text-center mt-4"
-              to={"/profissoes"}
+              to={"/profissoes/profissoes"}
             >
               Descubra
             </Link>

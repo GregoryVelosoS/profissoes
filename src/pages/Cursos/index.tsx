@@ -22,7 +22,7 @@ export default function Cursos() {
 
   const renderizarCursos = async () => {
     try {
-      const response = await fetch("/data/cursos.json");
+      const response = await fetch("/profissoes/data/cursos.json");
 
       if (!response.ok) {
         throw new Error("Erro ao puxar dados");
@@ -51,7 +51,7 @@ export default function Cursos() {
       alert("Por favor, selecione uma profissão antes de avançar");
       return;
     }
-    navigate("/salariofinal");
+    navigate("/profissoes/salariofinal");
   };
 
   const totalPaginas = cursos ? cursos.paginas.length : 0;
@@ -146,7 +146,7 @@ export default function Cursos() {
           </Pagination>
 
           <div className="w-full flex justify-between mt-8">
-            <Link className="mt-6 text-white text-xl underline font-bold" to="/faixasalarial">
+            <Link className="mt-6 text-white text-xl underline font-bold" to="/profissoes/faixasalarial">
               Voltar
             </Link>
 

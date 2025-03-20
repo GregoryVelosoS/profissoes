@@ -43,7 +43,7 @@ export default function FaixaSalarial() {
       alert("Por favor, selecione uma faixa salarial antes de avançar.");
       return;
     }
-    navigate("/cursos");
+    navigate("/profissoes/cursos");
   };
 
   return (
@@ -92,7 +92,7 @@ export default function FaixaSalarial() {
           <div className="w-full flex justify-between mt-8">
             <Link
               className="mt-6 text-blue-500 text-xl underline font-bold"
-              to="/profissoes"
+              to="/profissoes/profissoes"
             >
               Voltar
             </Link>

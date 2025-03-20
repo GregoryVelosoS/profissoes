@@ -22,7 +22,7 @@ export default function Final() {
                 <div className="space-y-6 sm:space-y-8">
                   <div className="flex items-center gap-3 justify-center  md:justify-start">
                     <TbArrowBack color="#fff" size={40} />
-                    <Link className="text-2xl text-white underline" to={"/inicio"}>
+                    <Link className="text-2xl text-white underline" to={"/profissoes/inicio"}>
                       Recomeçar
                     </Link>
                   </div>

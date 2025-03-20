@@ -22,7 +22,7 @@ export default function Profissoes() {
 
   const renderizarProfissoes = async () => {
     try {
-      const response = await fetch("/data/profissoes.json");
+      const response = await fetch("/profissoes/data/profissoes.json");
 
       if (!response.ok) {
         throw new Error("Erro ao puxar dados");
@@ -50,7 +50,7 @@ export default function Profissoes() {
       alert("Por favor, selecione uma profissão antes de avançar.");
       return;
     }
-    navigate("/faixasalarial");
+    navigate("/profissoes/faixasalarial");
   };
 
   const totalPaginas = profissoes ? profissoes.paginas.length : 0;
@@ -144,7 +144,7 @@ export default function Profissoes() {
           <div className="w-full flex  justify-between mt-8">
             <Link
               className="block mt-6 text-orange-500 text-xl underline font-bold"
-              to="/inicio"
+              to="/profissoes/inicio"
             >
               Página Inicial
             </Link>
