@@ -62,7 +62,7 @@ export default function SalarioFinal() {
               Profissões na área {carreiraEscolhida.area}{" "}
             </h1>
             <div className="w-full">
-              <ul className="grid md:grid-cols-2 sm:grid-cols-1 gap-x-12 gap-y-1 text-1xl  font-bold text-[#003c64]">
+              <ul className="grid gap-x-12 gap-y-1 md:grid-cols-2 sm:text-1xl sm:grid-cols-1 not-sm:text-xs font-bold text-[#003c64]">
                 {carreiraEscolhida.profissoes.map((profissao, idx) => (
                   <li key={idx} className="text-center">
                     {profissao.nome} - Salário: R$

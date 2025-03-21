@@ -16,7 +16,7 @@ export default function Final() {
           <main className="w-full">
             <div className="w-full">
               <div className="flex items-center justify-between flex-col md:flex-row gap-6 md:gap-0">
-                <h1 className="text-4xl sm:text-6xl md:text-9xl text-white max-w-[600px] leading-12 md:leading-28 text-center md:text-left red-font">
+                <h1 className=" not-sm:text-7xl not-sm:leading-20 sm:text-6xl md:text-9xl text-white max-w-[600px] leading-12 md:leading-28 text-center md:text-left red-font">
                   Seu futuro te espera no Senai
                 </h1>
                 <div className="space-y-6 sm:space-y-8">
@@ -28,16 +28,16 @@ export default function Final() {
                   </div>
 
                   <div className="flex items-center justify-center md:justify-start gap-4">
-                    <a href="https://www.instagram.com/senaivitoria/">
+                    <a href="https://www.instagram.com/senaivitoria/" target="_blank">
                       <CiInstagram color="#fff" size={40} />
                     </a>
-                    <a href="https://www.youtube.com/@SENAIES_Oficial">
+                    <a href="https://www.youtube.com/@SENAIES_Oficial" target="_blank">
                       <CiYoutube color="#fff" size={40} />
                     </a>
-                    <a href="https://pt-br.facebook.com/SenaiES/">
+                    <a href="https://pt-br.facebook.com/SenaiES/" target="_blank">
                       <CiFacebook color="#fff" size={40} />
                     </a>
-                    <a href="https://senaies.com.br/">
+                    <a href="https://senaies.com.br/" target="_blank">
                       <CiDesktop color="#fff" size={40} />
                     </a>
                   </div>

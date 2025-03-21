@@ -1,7 +1,24 @@
 import { Link } from "react-router-dom";
 import TopBar from "@/components/TopBar.tsx";
+import {useEffect} from "react";
 
 export default function Home() {
+
+  const enterFullscreen = () => {
+    const elem = document.documentElement;
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.requestFullscreen) { /* Safari */
+      elem.requestFullscreen();
+    } else if (elem.requestFullscreen) { /* IE11 */
+      elem.requestFullscreen();
+    }
+  };
+
+  useEffect(() => {
+    enterFullscreen();
+  }, []);
+
   return (
     <div className="h-screen bg-[#222fe6] pt-10">
       <main className="w-full flex items-center justify-center">
@@ -10,7 +27,7 @@ export default function Home() {
            <TopBar />
           </header>
           <div className="text-white space-y-4">
-            <h1 className="text-4xl sm:text-5xl md:text-8xl max-w-[530px] leading-tight sm:leading-10 md:leading-24">
+            <h1 className="text-7xl sm:text-5xl md:text-8xl max-w-[530px] leading-tight sm:leading-10 md:leading-24">
               <span className="font-bold">
                 O QUE
                 <br/> 
