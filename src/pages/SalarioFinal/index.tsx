@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { ListaCarreiras } from "../../types/carreiras";
+import { SalarioCard } from "@/components/ui/SalarioCard";
 
 export default function SalarioFinal() {
   const indexCurso = Number(localStorage.getItem("indexCurso"));
@@ -48,11 +49,17 @@ export default function SalarioFinal() {
               <div className="w-full flex items-center justify-center text-center">
                 <h1
                   className={
-                    "bg-[#fd7b01] rounded-full p-8 text-xl sm:text-4xl font-bold block text-center mt-4 md:w-1/2 text-white"
+                    "bg-[#fd7b01] rounded-full p-3 text-xl sm:text-xl font-bold block text-center mt-4 md:w-1/2 text-white"
                   }
                 >
                   {salarioEscolhido
-                    ? `Entre ${salarioEscolhido.min} e ${salarioEscolhido.max}`
+                    ? `Entre ${salarioEscolhido.min.toLocaleString("pt-BR", {
+                        currency: "BRL",
+                        style: "currency",
+                      })} e ${salarioEscolhido.max.toLocaleString("pt-BR", {
+                        currency: "BRL",
+                        style: "currency",
+                      })}`
                     : "Salário não disponível"}
                 </h1>
               </div>
@@ -62,14 +69,15 @@ export default function SalarioFinal() {
               Profissões na área {carreiraEscolhida.area}{" "}
             </h1>
             <div className="w-full">
-              <ul className="grid gap-x-12 gap-y-1 md:grid-cols-2 sm:text-1xl sm:grid-cols-1 not-sm:text-xs font-bold text-[#003c64]">
-                {carreiraEscolhida.profissoes.map((profissao, idx) => (
-                  <li key={idx} className="text-center">
-                    {profissao.nome} - Salário: R$
-                    {profissao.salario.toLocaleString("pt-BR")}
-                  </li>
+              <div className="grid mt-6 gap-x-2 gap-y-1 md:grid-cols-4  sm:text-1xl sm:grid-cols-1 not-sm:text-xs font-bold text-[#003c64]">
+                {carreiraEscolhida.profissoes.map((profissao, index) => (
+                  <SalarioCard
+                    key={index}
+                    title={profissao.nome}
+                    salary={profissao.salario}
+                  />
                 ))}
-              </ul>
+              </div>
             </div>
             <div className="w-full flex justify-between mt-8">
               <Link
