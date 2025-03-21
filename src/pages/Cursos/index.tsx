@@ -66,10 +66,10 @@ export default function Cursos() {
           </h1>
           <h2 className="text-white max-w-96 text-center text-balance text-lg md:text-xl mt-4 md:mt-0">
             MARQUE A OPÇÃO QUE MELHOR SE <br className="hidden md:block" />
-            ENCAIXA AOS
+            ENCAIXA AO
             <span className="font-bold">
               {" "}
-              CURSOS QUE VOCÊ GOSTARIA DE FAZER NO SENAI
+              CURSO QUE VOCÊ GOSTARIA DE FAZER NO SENAI
             </span>
           </h2>
         </header>

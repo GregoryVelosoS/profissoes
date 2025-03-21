@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { TbArrowBack } from "react-icons/tb";
-import { CiInstagram } from "react-icons/ci";
+import { CiDesktop, CiFacebook, CiInstagram, CiYoutube,  } from "react-icons/ci";
 
 import TopBar from "@/components/TopBar.tsx";
 
 export default function Final() {
   return (
     <div className="min-h-screen bg-[#222fe6] pt-10">
-      <main className="w-full flex items-center justify-center">
+      <main className="w-full flex items-center justify-center ">
         <div className="max-w-screen-lg w-full flex items-center justify-center flex-col gap-4 px-4">
           <header className="w-full">
            <TopBar />
@@ -28,14 +28,17 @@ export default function Final() {
                   </div>
 
                   <div className="flex items-center justify-center md:justify-start gap-4">
-                    <a href="">
+                    <a href="https://www.instagram.com/senaivitoria/">
                       <CiInstagram color="#fff" size={40} />
                     </a>
-                    <a href="">
-                      <CiInstagram color="#fff" size={40} />
+                    <a href="https://www.youtube.com/@SENAIES_Oficial">
+                      <CiYoutube color="#fff" size={40} />
                     </a>
-                    <a href="">
-                      <CiInstagram color="#fff" size={40} />
+                    <a href="https://pt-br.facebook.com/SenaiES/">
+                      <CiFacebook color="#fff" size={40} />
+                    </a>
+                    <a href="https://senaies.com.br/">
+                      <CiDesktop color="#fff" size={40} />
                     </a>
                   </div>
                 </div>
