@@ -1,37 +1,37 @@
 {
     "paginas": [
       {
-        "pagina": 1,
-        "cursos": [
-          "Curso de Marketing Digital",
-          "Curso de Design Gráfico",
-          "Curso de Programação",
-          "Curso de Fotografia",
-          "Curso de Administração",
-          "Curso de Enfermagem"
-        ]
+      "pagina": 1,
+      "cursos": [
+        "Curso de T.I",
+        "Curso de Mecânica",
+        "Curso de Elétrica",
+        "Curso de Logística",
+        "Curso de Automação",
+        "Curso de Eletrônica"
+      ]
       },
       {
-        "pagina": 2,
-        "cursos": [
-          "Curso de Engenharia Civil",
-          "Curso de Psicologia",
-          "Curso de Gastronomia",
-          "Curso de Direito",
-          "Curso de Arquitetura",
-          "Curso de Educação Física"
-        ]
+      "pagina": 2,
+      "cursos": [
+        "Curso de T.I",
+        "Curso de Mecânica",
+        "Curso de Elétrica",
+        "Curso de Logística",
+        "Curso de Automação",
+        "Curso de Eletrônica"
+      ]
       },
       {
-        "pagina": 3,
-        "cursos": [
-          "Curso de Web Design",
-          "Curso de Pedagogia",
-          "Curso de Estética",
-          "Curso de Matemática",
-          "Curso de Ciências Biológicas",
-          "Curso de Física"
-        ]
+      "pagina": 3,
+      "cursos": [
+        "Curso de T.I",
+        "Curso de Mecânica",
+        "Curso de Elétrica",
+        "Curso de Logística",
+        "Curso de Automação",
+        "Curso de Eletrônica"
+      ]
       }
     ]
   }
