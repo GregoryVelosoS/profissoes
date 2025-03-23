@@ -9,7 +9,7 @@ export default function Final() {
     <div className="min-h-screen bg-[#222fe6] pt-10">
       <main className="w-full flex items-center justify-center ">
         <div className="max-w-screen-lg w-full flex items-center justify-center flex-col gap-4 px-4">
-          <header className="w-full">
+          <header className="w-full not-sm:mt-10">
            <TopBar />
           </header>
 

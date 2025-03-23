@@ -9,6 +9,8 @@ import {
   PaginationLink,
 } from "@/components/ui/pagination";
 import { Link, useNavigate } from "react-router-dom";
+import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
+
 
 export default function Profissoes() {
   const [profissoes, setProfissoes] = useState<ListaProfissoes | null>(null);
@@ -58,6 +60,25 @@ export default function Profissoes() {
   return (
     <div className="max-w-5xl mx-auto flex items-center justify-center min-h-screen px-4">
       <div className="w-full pt-8">
+      <div className="w-full flex  justify-between">
+            <Link
+              className="block text-orange-500 text-xl  font-bold"
+              to="/profissoes/inicio"
+            >
+              <RiArrowLeftDoubleFill className=" inline-block" size={60} /> 
+              Voltar
+            </Link>
+
+            <button
+              onClick={avancarParaCursos}
+              className="block text-orange-500 text-xl cursor-pointer  font-bold"
+            >
+               Avançar
+               <RiArrowRightDoubleFill className=" inline-block" size={60} />
+                
+            </button>
+          </div>
+
         <header className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
           <h1 className="font-bold text-[#003c64] leading-tight text-4xl md:text-6xl">
             <span className="font-normal">Qual</span> Sua{" "}
@@ -69,8 +90,57 @@ export default function Profissoes() {
             <span className="font-bold"> ATUAL EMPREGO</span>
           </h2>
         </header>
+        <Pagination className="mt-5">
+            <PaginationContent>
+              <PaginationItem>
+                <PaginationPrevious
+                  href="#"
+                  onClick={() =>
+                    setPaginaAtual(paginaAtual > 1 ? paginaAtual - 1 : 1)
+                  }
+                  className={
+                    paginaAtual === 1 ? "opacity-50 cursor-not-allowed" : ""
+                  }
+                />
+              </PaginationItem>
 
-        <main className="mt-12">
+              {profissoes &&
+                profissoes.paginas.map((pagina) => (
+                  <PaginationItem key={pagina.pagina}>
+                    <PaginationLink
+                      href="#"
+                      onClick={() => setPaginaAtual(pagina.pagina)}
+                      className={
+                        paginaAtual === pagina.pagina
+                          ? "font-bold text-blue-600"
+                          : ""
+                      }
+                    >
+                      {pagina.pagina}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+
+              <PaginationItem>
+                <PaginationNext
+                  href="#"
+                  onClick={() =>
+                    setPaginaAtual(
+                      paginaAtual < totalPaginas
+                        ? paginaAtual + 1
+                        : totalPaginas
+                    )
+                  }
+                  className={
+                    paginaAtual === totalPaginas
+                      ? "opacity-50 cursor-not-allowed"
+                      : ""
+                  }
+                />
+              </PaginationItem>
+            </PaginationContent>
+          </Pagination>
+        <main className="mt-5">
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
             {profissoes &&
               profissoes.paginas
@@ -90,7 +160,7 @@ export default function Profissoes() {
                 ))}
           </ul>
 
-          <Pagination className="mt-12">
+          <Pagination className=" sm:hidden mt-5">
             <PaginationContent>
               <PaginationItem>
                 <PaginationPrevious
@@ -141,21 +211,8 @@ export default function Profissoes() {
             </PaginationContent>
           </Pagination>
 
-          <div className="w-full flex  justify-between mt-8">
-            <Link
-              className="block mt-6 text-orange-500 text-xl underline font-bold"
-              to="/profissoes/inicio"
-            >
-              Página Inicial
-            </Link>
 
-            <button
-              onClick={avancarParaCursos}
-              className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
-            >
-              Avançar
-            </button>
-          </div>
+
         </main>
       </div>
     </div>

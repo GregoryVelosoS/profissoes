@@ -23,7 +23,7 @@ export default function Home() {
     <div className="h-screen bg-[#222fe6] pt-10">
       <main className="w-full flex items-center justify-center">
         <div className="min-w-full md:min-w-5xl flex items-center justify-center flex-col gap-4 px-4">
-          <header className="w-full">
+          <header className="w-full not-sm:mt-10 ">
            <TopBar />
           </header>
           <div className="text-white space-y-4">
