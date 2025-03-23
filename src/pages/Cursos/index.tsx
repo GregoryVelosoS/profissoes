@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/pagination";
 import { Link, useNavigate } from "react-router-dom";
 import { ListaCursos } from "@/types/cursos";
+import { RiArrowLeftDoubleFill, RiArrowRightDoubleFill } from "react-icons/ri";
 
 export default function Cursos() {
   const [cursos, setCursos] = useState<ListaCursos | null>(null);
@@ -59,7 +60,25 @@ export default function Cursos() {
   return (
     <div className=" bg-[#222fe6] flex items-center justify-center min-h-screen px-4">
       <div className="w-full pt-8 max-w-5xl mx-auto">
-        <header className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+        <div className="w-full fixed top-0 left-0 z-10 bg-white md:bg-transparent p-2 flex justify-between">
+          <Link
+            className="block text-orange-500 text-xl font-bold"
+            to="/profissoes/inicio"
+          >
+            <RiArrowLeftDoubleFill className=" inline-block" size={45} />
+            Voltar
+          </Link>
+
+          <button
+            onClick={avancarParaSalarioFinal}
+            className="block text-orange-500 text-xl cursor-pointer  font-bold"
+          >
+            Avançar
+            <RiArrowRightDoubleFill className=" inline-block" size={45} />
+          </button>
+        </div>
+
+        <header className="flex pt-[60px] flex-col md:flex-row items-center justify-between text-center md:text-left">
           <h1 className="font-bold text-white leading-tight text-4xl md:text-6xl">
             <span className="font-normal">Qual</span> Curso{" "}
             <br className="hidden md:block" /> Você gostaria?
@@ -144,19 +163,6 @@ export default function Cursos() {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-
-          <div className="w-full flex justify-between mt-8">
-            <Link className="mt-6 text-white text-xl underline font-bold" to="/profissoes/faixasalarial">
-              Voltar
-            </Link>
-
-            <button
-              onClick={avancarParaSalarioFinal}
-              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
-            >
-              Avançar
-            </button>
-          </div>
         </main>
       </div>
     </div>

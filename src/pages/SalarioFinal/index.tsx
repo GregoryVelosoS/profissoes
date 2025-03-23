@@ -79,7 +79,7 @@ export default function SalarioFinal() {
                 ))}
               </div>
             </div>
-            <div className="w-full flex justify-between mt-8">
+            <div className="w-full flex justify-between p-4">
               <Link
                 className="mt-6  text-blue-500 text-xl underline font-bold"
                 to="/profissoes/cursos"
@@ -87,7 +87,7 @@ export default function SalarioFinal() {
                 Voltar
               </Link>
               <Link
-                className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold content-center px-6 rounded-lg text-lg"
+                className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold content-center px-6 rounded-lg text-base"
                 to="/profissoes/final"
               >
                 Finalizar

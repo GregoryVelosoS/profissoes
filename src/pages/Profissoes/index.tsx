@@ -11,7 +11,6 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 
-
 export default function Profissoes() {
   const [profissoes, setProfissoes] = useState<ListaProfissoes | null>(null);
   const [profissaoEscolhida, setProfissaoEscolhida] = useState<string | null>();
@@ -58,28 +57,27 @@ export default function Profissoes() {
   const totalPaginas = profissoes ? profissoes.paginas.length : 0;
 
   return (
-    <div className="max-w-5xl mx-auto flex items-center justify-center min-h-screen px-4">
+    <div className="max-w-5xl mx-auto flex items-center justify-center px-4 md:py-12">
       <div className="w-full pt-8">
-      <div className="w-full flex  justify-between">
-            <Link
-              className="block text-orange-500 text-xl  font-bold"
-              to="/profissoes/inicio"
-            >
-              <RiArrowLeftDoubleFill className=" inline-block" size={60} /> 
-              Voltar
-            </Link>
+      <div className="w-full fixed top-0 left-0 z-10 bg-white p-2 shadow-md flex justify-between">
+          <Link
+            className="block text-orange-500 text-xl  font-bold"
+            to="/profissoes/inicio"
+          >
+            <RiArrowLeftDoubleFill className=" inline-block" size={45} />
+            Voltar
+          </Link>
 
-            <button
-              onClick={avancarParaCursos}
-              className="block text-orange-500 text-xl cursor-pointer  font-bold"
-            >
-               Avançar
-               <RiArrowRightDoubleFill className=" inline-block" size={60} />
-                
-            </button>
-          </div>
+          <button
+            onClick={avancarParaCursos}
+            className="block text-orange-500 text-xl cursor-pointer  font-bold"
+          >
+            Avançar
+            <RiArrowRightDoubleFill className=" inline-block" size={45} />
+          </button>
+        </div>
 
-        <header className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+        <header className="flex flex-col pt-[60px] md:flex-row items-center justify-between text-center md:text-left">
           <h1 className="font-bold text-[#003c64] leading-tight text-4xl md:text-6xl">
             <span className="font-normal">Qual</span> Sua{" "}
             <br className="hidden md:block" /> Profissão?
@@ -91,55 +89,53 @@ export default function Profissoes() {
           </h2>
         </header>
         <Pagination className="mt-5">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious
-                  href="#"
-                  onClick={() =>
-                    setPaginaAtual(paginaAtual > 1 ? paginaAtual - 1 : 1)
-                  }
-                  className={
-                    paginaAtual === 1 ? "opacity-50 cursor-not-allowed" : ""
-                  }
-                />
-              </PaginationItem>
+          <PaginationContent>
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={() =>
+                  setPaginaAtual(paginaAtual > 1 ? paginaAtual - 1 : 1)
+                }
+                className={
+                  paginaAtual === 1 ? "opacity-50 cursor-not-allowed" : ""
+                }
+              />
+            </PaginationItem>
 
-              {profissoes &&
-                profissoes.paginas.map((pagina) => (
-                  <PaginationItem key={pagina.pagina}>
-                    <PaginationLink
-                      href="#"
-                      onClick={() => setPaginaAtual(pagina.pagina)}
-                      className={
-                        paginaAtual === pagina.pagina
-                          ? "font-bold text-blue-600"
-                          : ""
-                      }
-                    >
-                      {pagina.pagina}
-                    </PaginationLink>
-                  </PaginationItem>
-                ))}
+            {profissoes &&
+              profissoes.paginas.map((pagina) => (
+                <PaginationItem key={pagina.pagina}>
+                  <PaginationLink
+                    href="#"
+                    onClick={() => setPaginaAtual(pagina.pagina)}
+                    className={
+                      paginaAtual === pagina.pagina
+                        ? "font-bold text-blue-600"
+                        : ""
+                    }
+                  >
+                    {pagina.pagina}
+                  </PaginationLink>
+                </PaginationItem>
+              ))}
 
-              <PaginationItem>
-                <PaginationNext
-                  href="#"
-                  onClick={() =>
-                    setPaginaAtual(
-                      paginaAtual < totalPaginas
-                        ? paginaAtual + 1
-                        : totalPaginas
-                    )
-                  }
-                  className={
-                    paginaAtual === totalPaginas
-                      ? "opacity-50 cursor-not-allowed"
-                      : ""
-                  }
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+            <PaginationItem>
+              <PaginationNext
+                href="#"
+                onClick={() =>
+                  setPaginaAtual(
+                    paginaAtual < totalPaginas ? paginaAtual + 1 : totalPaginas
+                  )
+                }
+                className={
+                  paginaAtual === totalPaginas
+                    ? "opacity-50 cursor-not-allowed"
+                    : ""
+                }
+              />
+            </PaginationItem>
+          </PaginationContent>
+        </Pagination>
         <main className="mt-5">
           <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
             {profissoes &&
@@ -210,9 +206,6 @@ export default function Profissoes() {
               </PaginationItem>
             </PaginationContent>
           </Pagination>
-
-
-
         </main>
       </div>
     </div>

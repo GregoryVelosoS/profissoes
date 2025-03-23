@@ -20,7 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen bg-[#222fe6] pt-10">
+    <div className="min-h-screen w-full bg-[#222fe6] pt-10">
       <main className="w-full flex items-center justify-center">
         <div className="min-w-full md:min-w-5xl flex items-center justify-center flex-col gap-4 px-4">
           <header className="w-full not-sm:mt-10 ">

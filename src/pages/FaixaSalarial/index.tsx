@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { RiArrowLeftDoubleFill, RiArrowRightDoubleFill } from "react-icons/ri";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function FaixaSalarial() {
@@ -47,9 +48,27 @@ export default function FaixaSalarial() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto flex items-center justify-center min-h-screen px-4">
+    <div className="max-w-5xl mx-auto flex items-center justify-center px-4 md:py-12 lg:py-12">
       <div className="w-full pt-8">
-        <header className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+      <div className="w-full fixed top-0 left-0 z-10 bg-white p-2 shadow-md flex justify-between">
+          <Link
+            className="block text-orange-500 text-xl  font-bold"
+            to="/profissoes/inicio"
+          >
+            <RiArrowLeftDoubleFill className=" inline-block" size={45} />
+            Voltar
+          </Link>
+
+          <button
+            onClick={avancarParaCurso}
+            className="block text-orange-500 text-xl cursor-pointer  font-bold"
+          >
+            Avançar
+            <RiArrowRightDoubleFill className=" inline-block" size={45} />
+          </button>
+        </div>
+
+        <header className="flex pt-[60px] flex-col md:flex-row items-center justify-between text-center md:text-left">
           <h1 className="font-bold text-[#003c64] leading-tight text-4xl md:text-6xl">
             <span className="font-normal">Qual</span> Sua{" "}
             <br className="hidden md:block" /> Faixa Salarial?
@@ -89,21 +108,6 @@ export default function FaixaSalarial() {
               </li>
             ))}
           </ul>
-          <div className="w-full flex justify-between mt-8">
-            <Link
-              className="mt-6 text-blue-500 text-xl underline font-bold"
-              to="/profissoes/profissoes"
-            >
-              Voltar
-            </Link>
-
-            <button
-              onClick={avancarParaCurso}
-              className="bg-orange-500 cursor-pointer hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-lg text-lg"
-            >
-              Avançar
-            </button>
-          </div>
         </main>
       </div>
     </div>
